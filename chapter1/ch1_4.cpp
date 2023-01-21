@@ -14,8 +14,8 @@ int main(void)
     std::cout << "ab" << "\t" <<"cdef" << std::endl;
 
     cout << "안녕하세요!" << endl;
-    cout << "\a";
+    cout << "\a"; //소리 안들리는데용 ㅎㅎ..
 
-    
+
     return 0; //return statement 
 }   
