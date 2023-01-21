@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 void doSomething(int x)
@@ -8,9 +7,6 @@ void doSomething(int x)
     cout << x << endl; //5
 
 }
-
-
-
 
 int main()
 {
@@ -27,6 +23,8 @@ int main()
         int x=2;
         cout << x <<" "<< &x<< endl; //3
     }
+
+
    cout << x <<" "<< &x<< endl; //4
    doSomething(x);
    cout << x <<" "<< &x<< endl; //6
