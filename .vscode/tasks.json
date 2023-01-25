@@ -1,66 +1,40 @@
 {
     "version": "2.0.0",
-    "runner": "terminal",
-    "type": "shell",
-    "echoCommand": true,
-    "presentation": {
-        "reveal": "always"
-    },
     "tasks": [
         {
-            "label": "save and compile for C++",
-            "command": "g++",
+            "type": "shell",
+            "label": "g++ build active file",
+            "command": "/usr/bin/g++",
             "args": [
+                "-g",
                 "${file}",
                 "-o",
-                "-g",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${workspaceFolder}/bin/${fileBasenameNoExtension}"
             ],
-            "group": "build",
             "problemMatcher": {
                 "fileLocation": [
                     "relative",
-                    "${workspaceRoot}"
+                    "${workspaceFolder}"
                 ],
                 "pattern": {
-                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning error):\\s+(.*)$",
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
                     "file": 1,
                     "line": 2,
                     "column": 3,
                     "severity": 4,
                     "message": 5
                 }
-            }
+            },
+            "group": "build"
         },
         {
-            "label": "save and compile for C",
-            "command": "gcc",
-            "args": [
-                "${file}",
-                "-o",
-                "-g",
-                "${fileDirname}/${fileBasenameNoExtension}"
-            ],
-            "group": "build",
-            "problemMatcher": {
-                "fileLocation": [
-                    "relative",
-                    "${workspaceRoot}"
-                ],
-                "pattern": {
-                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning error):\\s+(.*)$",
-                    "file": 1,
-                    "line": 2,
-                    "column": 3,
-                    "severity": 4,
-                    "message": 5
-                }
-            }
-        },
-        {
+            "type": "shell",
             "label": "execute",
-            "command": "cd ${fileDirname} &&./${fileBasenameNoExtension}",
-            "group": "test"
+            "command": "cd ${workspaceFolder}/bin && ./${fileBasenameNoExtension}",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
         },
         {
             "type": "cppbuild",

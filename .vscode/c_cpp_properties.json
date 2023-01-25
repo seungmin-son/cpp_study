@@ -3,7 +3,9 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "~/catkin_ws/src/CPP_STUDY/header/**",
+                "/home/son/catkin_ws/src/CPP_STUDY/src/header/**"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/g++",
