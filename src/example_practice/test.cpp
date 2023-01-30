@@ -1,24 +1,27 @@
 #include <iostream>
-#include <string>
+#include <vector>
 #include <algorithm>
 
 using namespace std;
 
-int rev(int n)
-{
-    string s = to_string(n); 
-    reverse(s.begin(), s.end());
-    
-    return atoi(s.c_str());
-}
-
 int main()
 {
-    int num1,num2;
-    cin >> num1 >> num2;
-    num1= rev(num1);
-    num2 =rev(num2);
+    int arr_size;
+    cin >> arr_size;
 
-    cout << (num1 > num2 ? num1:num2) << endl;
+    vector<int> arr(arr_size);
+
+    
+    for( int i = 0; i <arr_size; i++)
+        cin >> arr[i];
+
+
+    sort(arr.begin(),arr.end());
+
+    for( int i = 0; i <arr_size; i++)
+        cout << arr[i] << '\n';
+    
+    cout << endl;
+
     return 0;
 }
