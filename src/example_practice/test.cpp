@@ -1,27 +1,86 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
-
+#include <stack>
 using namespace std;
 
-int main()
+stack<int> st;
+void push() 
 {
-    int arr_size;
-    cin >> arr_size;
+	int t;
+	cin >> t;
 
-    vector<int> arr(arr_size);
+	st.push(t);
+	return;
+}
+int pop() 
+{
+	if (st.empty()) {
+		return -1;
+	}
+	else {
+		int top = st.top();
+		st.pop();
+		return top;
+	}
+}
+int size() 
+{
+	return st.size();
+}
 
-    
-    for( int i = 0; i <arr_size; i++)
-        cin >> arr[i];
+int empty() 
+{
+	if (st.empty()) {
+		return 1;
+	}
+	else {
+		return 0;
+	}
+}
 
+int top() 
+{
+	if (st.empty()) {
+		return -1;
+	}
+	else {
+		int top = st.top();
+		return top;
+	}
+}
 
-    sort(arr.begin(),arr.end());
+int main() 
+{
+	string opt[5] = {"push", "pop", "size", "empty", "top"};
+	int num;
+	cin >> num;
 
-    for( int i = 0; i <arr_size; i++)
-        cout << arr[i] << '\n';
-    
-    cout << endl;
+	string s1;
+	while (num--) 
+    {
+		cin >> s1;
 
-    return 0;
+		for (int i = 0; i < 5; i++) 
+        {
+			if (s1 == opt[i]) 
+            {
+				if (i == 0) {
+					push();
+				}
+				else if (i == 1) 
+					cout << pop() << '\n';
+				
+				else if (i == 2) 
+					cout << size() << '\n';
+				
+				else if (i == 3) 
+					cout << empty() << '\n';
+				
+				else if (i == 4) 
+					cout << top() << '\n';
+				
+				break;
+			}
+		}
+	}
+	return 0;
 }
